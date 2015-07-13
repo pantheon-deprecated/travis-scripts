@@ -15,12 +15,9 @@ Copy the contents of the `examples` directory to the root of your project, renam
 ```
   example.gitignore     -> .gitignore
   example.travis.yml    -> .travis.yml
-  example.circle.yml    -> circle.yml
   example.behat.yml     -> behat.yml
   features              -> features
 ```
-Of course, you will only need one of .travis.yml or circle.yml; keep the one you want to use, and remove the other.
-
 You will also need a composer.json file for your project.  The project [example-drupal7-composer](https://github.com/pantheon-systems/example-drupal7-composer) can be used as a template to quickly create your own project; for Drupal 8, see [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project).
 
 ## Configuration
@@ -28,6 +25,8 @@ You will also need a composer.json file for your project.  The project [example-
 You must customize the contents of these files to suit the needs of your project.  See the detailed instructions below; more information is also available in the comments inside each file.
 
 #### Composer
+
+Do not use the composer.json file included in the pantheon-systems/travis-scripts project; instead, use one from a project mentioned in the section **Setup**, above.
 
 Set the **name** and **description** in your composer.json file to something appropriate for your project.  
 
@@ -56,16 +55,6 @@ You will need to set up your repository to be tested by Travis in order to encry
 The other parts of the example .travis.yml file should run without modification.  Note that the scripts run from the `bin` directory come from either the `scripts` directory of this project (which are copied to the `bin` directory when you require "pantheon-systems/travis-scripts" in your project's composer.json), or from some other component **require-dev** (e.g. behat).
 
 See the [Travis CI documentation](http://docs.travis-ci.com/user/getting-started/) for instructions on how to set up GitHub integration, so that your code will be automatically tested on every commit.
-
-Do not use Travis CI if you are using Circle CI.
-
-#### Circle CI
-
-Push-to-pantheon for Circle CI is not provided yet; the other parts of the example circle.yml file should run without modification.
-
-See the [Circle CI documentation](https://circleci.com/docs/getting-started) for instructions on how to set up GitHub integration, so that your code will be automatically tested on every commit.
-
-Do not use Circle CI if you are using Travis CI.
 
 #### Behat
 
