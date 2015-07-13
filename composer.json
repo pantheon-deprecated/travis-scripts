@@ -2,23 +2,9 @@
     "name": "pantheon-systems/travis-scripts",
     "description": "Use Travis to build a Drupal site with Composer, test with Behat, and then deploy to Pantheon.",
     "require": {
-        "behat/behat": "3.*",
-        "behat/mink": "*",
-        "drupal/drupal-extension": "*",
-        "drush/drush": "*",
-        "behat/mink-extension": "*",
-        "behat/mink-goutte-driver": "*",
-        "phpunit/phpunit": ">=3.5"
+        "pantheon-systems/ci-scripts": "*"
     },
     "bin": [
-        "scripts/init-new-project",
-        "scripts/disable-php-email",
-        "scripts/setup-before-tests",
-        "scripts/install-drupal",
-        "scripts/start-webserver",
-        "scripts/wait-for-webserver",
-        "scripts/push-to-pantheon",
-        "scripts/stop-webserver",
-        "scripts/local-test"
+        "scripts/init-new-project"
     ]
 }
