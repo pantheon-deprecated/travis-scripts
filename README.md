@@ -36,16 +36,22 @@ The custom installers in the **require** section of your composer.json file cont
 
 #### Travis CI
 
-Define the environment variables that identify your site in the **global** section of your .travis.yml **env**.  See the comments in the file for instructions, especially for the encrypted environment variables and encrypted private key file.  The encrypted items are only necessary if you want to push your site to Pantheon after every successful test run.
-
-You will need to set up your repository to be tested by Travis in order to encrypt your Travis API key.
+Set up your project to be tested by Travis CI:
 
 * Log in to https://travis-ci.org in your web browser 
 * Click on the "+" next to "My Repositories"
 * Find the repository you would like to configure to test. Navigate to the right organization, if necessary, and click "sync" if the repository was created recently.
 * Enable the repository by clicking on the checkbox next to it.
-# Push a commit to your repository to start a build.
-* [Add an ssh key to your Pantheon account](https://pantheon.io/docs/articles/users/loading-ssh-keys/). You may use the same private key that you use with GitHub, if you wish.
+* Push a commit to your repository to start a build.
+
+Next, set up the environment variables used by the push-to-pantheon script.
+
+Define the environment variables that identify your site in the **global** section of your .travis.yml **env**.  See the comments in the file for instructions, especially for the encrypted environment variables and encrypted private key file.  The encrypted items are only necessary if you want to push your site to Pantheon after every successful test run.  You will need to set up your repository to be tested by Travis as shown above in order to encrypt your Travis API key.
+
+You also need to set up an ssh key, so that the push-to-pantheon script can commit changes to the Pantheon git repository.
+
+* [Create a public/private ssh key pair](https://help.github.com/articles/generating-ssh-keys/). You might want to use a different key than the one you use with GitHub.
+* [Add the public ssh key to your Pantheon account](https://pantheon.io/docs/articles/users/loading-ssh-keys/).
 * [Encrypt your private key for Travis](http://docs.travis-ci.com/user/encrypting-files/).
   * Name your private key `travis-ci-key`, and place it at the base of your project (this file is already in the starting .gitignore file).
   * Create your encrypted key with `cd travis && travis encrypt-file travis-ci-key`.
