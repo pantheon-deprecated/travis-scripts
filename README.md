@@ -18,7 +18,7 @@ Copy the contents of the `examples` directory to the root of your project, renam
   example.behat.yml     -> behat.yml
   features              -> features
 ```
-You will also need a composer.json file for your project.  The project [example-drupal7-composer](https://github.com/pantheon-systems/example-drupal7-composer) can be used as a template to quickly create your own project; for Drupal 8, see [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project).
+You will also need a composer.json file for your project.  The project [example-drupal7-travis-composer](https://github.com/pantheon-systems/example-drupal7-travis-composer) can be used as a template to quickly create your own project; for Drupal 8, see [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project).
 
 ## Configuration
 
