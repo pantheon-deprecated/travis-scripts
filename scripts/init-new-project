@@ -68,7 +68,7 @@ then
   fi
   if [ -n "$REPLACEMENT_ROOT" ]
   then
-    sed -i '' -e '#./drupal#./'$REPLACEMENT_ROOT'#g' $PROJECT_BASE_DIR/behat.yml
+    sed -i '' -e 's#./drupal#./'$REPLACEMENT_ROOT'#g' $PROJECT_BASE_DIR/behat.yml
   fi
 fi
 
