@@ -55,6 +55,23 @@ cp -n $EXAMPLES_DIR/example.behat.yml $PROJECT_BASE_DIR/behat.yml
 # Duplicate the entire 'features' directory with rsync. Ignore existing files.
 rsync -rv --ignore-existing $EXAMPLES_DIR/features $PROJECT_BASE_DIR &> /dev/null
 
+# Check to see if this project is using 'web' or 'htdocs' instead of 'drupal',
+# and fix up our starting behat.yml if so.
+if [ ! -d $PROJECT_BASE_DIR/drupal ]
+then
+  if [ -d $PROJECT_BASE_DIR/web ]
+  then
+    REPLACEMENT_ROOT=web
+  elif [ -d $PROJECT_BASE_DIR/htdocs ]
+  then
+    REPLACEMENT_ROOT=htdocs
+  fi
+  if [ -n "$REPLACEMENT_ROOT" ]
+  then
+    sed -i '' -e '#./drupal#./'$REPLACEMENT_ROOT'#g' $PROJECT_BASE_DIR/behat.yml
+  fi
+fi
+
 # Create a local git repository, if one does not already exist
 cd "$PROJECT_BASE_DIR"
 if [ ! -d "$PROJECT_BASE_DIR/.git" ]
