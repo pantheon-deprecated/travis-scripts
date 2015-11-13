@@ -1,4 +1,6 @@
-## About
+This project is deprecated; will be replaced with a newer and more comprehensive [example Drupal 7 Travis CI Composer project](https://github.com/pantheon-systems/example-drupal7-travis-composer), which will be used to quickly create your own derived project.  See the [example Drupal 7 Circle CI Composer project](https://github.com/pantheon-systems/example-drupal7-circle-composer), which is more up-to-date, but works with Circle CI rather than Travis.
+
+## Original Documentation
 
 This project is designed to be included from the **require** section of a Drupal site's `composer.json` file.  Doing this allows you to achieve the following things:
 
